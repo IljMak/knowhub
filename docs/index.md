@@ -17,7 +17,7 @@ nav_order: 0
 ### [Jane Dane]
 
 About
-: Some info about Jane
+: Some info about Ilja
 
 Matr.-Nr.
 : 1234567
