@@ -5,7 +5,10 @@ nav_order: 0
 
 
 
-# KnowHub
+# **KnowHub**
+
+## Projektbeschreibung
+
 
 In unserer Web-App "KnowHub" hat der Nutzer die Möglichkeit anhand verschiedenen Methoden sich Wissen anzueignen. Wie zum Beispiel anhand von einem klassischen Quiz-Spiel, wo eine Frage gestellt wird und man aus Antwortmöglichkeiten eine auswählt. Weitere Methoden wären, Memory Spiele oder Puzzle Spiele. Außerdem kann der Student zwischen fachbezogenen Modulen wie VWL oder Rechnungswesen auswählen und dort die Fragen beantworten, die einen Studenten für eine Klausur/Prüfung vorbereiten soll.
 
@@ -14,11 +17,11 @@ Bei der korrekten Beantwortung der Fragen bekommt der Nutzer "Wissenspunkte" mit
 Dazu sollen es kooperative Elemente geben, wo zwei Nutzer gemeinsam Module oder Quest abschließen können. Dies soll den sozialen Aspekt decken und das gemeinsame Lernen fördern.
 
 
-Bonus: wollen wir Easter Eggs und Wöchentliche Quests hinzufügen, die den Nutzer ermöglicht schnelle "Wissenspunkte" zu bekommen
+__Bonus: wir wollen Easter Eggs und Wöchentliche Quests hinzufügen, die den Nutzer ermöglicht schnelle "Wissenspunkte" zu bekommen und falls es zeitlich passt Kosmetische Inhalt hinzufügen__
 
 ## Team members
 
-### [Ilja Makarchuk]
+### Ilja Makarchuk
 
 About
 : Some info about Ilja
@@ -26,7 +29,7 @@ About
 Matr.-Nr.
 : 77211988053
 
-### [Matthieu Weinlein]
+### Matthieu Weinlein
 
 About
 : Some info about Matthieu
