@@ -17,7 +17,7 @@ Bei der korrekten Beantwortung der Fragen bekommt der Nutzer "Wissenspunkte" mit
 Dazu sollen es kooperative Elemente geben, wo zwei Nutzer gemeinsam Module oder Quest abschließen können. Dies soll den sozialen Aspekt decken und das gemeinsame Lernen fördern.
 
 
-__Bonus: wir wollen Easter Eggs und Wöchentliche Quests hinzufügen, die den Nutzer ermöglicht schnelle "Wissenspunkte" zu bekommen und falls es zeitlich passt Kosmetische Inhalt hinzufügen__
+**Bonus: wir wollen Easter Eggs und Wöchentliche Quests hinzufügen, die den Nutzer ermöglicht schnelle "Wissenspunkte" zu bekommen und falls es zeitlich passt Kosmetische Inhalt hinzufügen**
 
 ## Team members
 
