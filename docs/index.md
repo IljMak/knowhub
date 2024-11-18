@@ -14,7 +14,7 @@ nav_order: 0
 
 ## Team members
 
-### [Jane Dane]
+### [Ilja Makarchuk]
 
 About
 : Some info about Ilja
@@ -22,10 +22,10 @@ About
 Matr.-Nr.
 : 1234567
 
-### [Joe Doe]
+### [Matthieu Weinlein]
 
 About
-: Some info about Joe
+: Some info about Matthieu
 
 Matr.-Nr.
 : 1234567
