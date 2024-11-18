@@ -4,7 +4,7 @@ nav_order: 1
 ---
 
 {: .label }
-[Jane Dane]
+Ilja Makarchuk & Matthieu Weinlein
 
 {: .no_toc }
 # Value proposition

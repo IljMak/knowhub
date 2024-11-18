@@ -4,7 +4,7 @@ nav_order: 3
 ---
 
 {: .label }
-[Jane Dane]
+Ilja Makarchuk & Matthieu Weinlein
 
 {: .no_toc }
 # Design decisions
@@ -16,7 +16,7 @@ nav_order: 3
 {: toc }
 </details>
 
-## 01: [Title]
+## 01: Login Screen
 
 ### Meta
 
@@ -24,11 +24,11 @@ Status
 : **Work in progress** - Decided - Obsolete
 
 Updated
-: DD-MMM-YYYY
+: 18-11-2024
 
 ### Problem statement
 
-[Describe Ilja the problem to be solved or the goal to be achieved. Include relevant context information.]
+[Describe the problem to be solved or the goal to be achieved. Include relevant context information.]
 
 ### Decision
 
