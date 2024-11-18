@@ -7,6 +7,7 @@ nav_order: 0
 
 # **KnowHub**
 
+
 ## Projektbeschreibung
 
 
@@ -17,14 +18,14 @@ Bei der korrekten Beantwortung der Fragen bekommt der Nutzer "Wissenspunkte" mit
 Dazu sollen es kooperative Elemente geben, wo zwei Nutzer gemeinsam Module oder Quest abschließen können. Dies soll den sozialen Aspekt decken und das gemeinsame Lernen fördern.
 
 
-**Bonus: wir wollen Easter Eggs und Wöchentliche Quests hinzufügen, die den Nutzer ermöglicht schnelle "Wissenspunkte" zu bekommen und falls es zeitlich passt Kosmetische Inhalt hinzufügen**
+_Bonus: wir wollen Easter Eggs und Wöchentliche Quests hinzufügen, die den Nutzer ermöglicht schnelle "Wissenspunkte" zu bekommen und falls es zeitlich passt Kosmetische Inhalt hinzufügen_
 
 ## Team members
 
 ### Ilja Makarchuk
 
 About
-: Some info about Ilja
+: Student an der Hochschule für Wirtschaft und Recht im vierten Semester
 
 Matr.-Nr.
 : 77211988053
@@ -32,7 +33,7 @@ Matr.-Nr.
 ### Matthieu Weinlein
 
 About
-: Some info about Matthieu
+: Student an der Hochschule für Wirtschaft und Recht im vierten Semester
 
 Matr.-Nr.
 : 1234567
