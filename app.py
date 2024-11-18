@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, abort, flash
-from flask_bootstrap import Bootstrap5
+from flask_bootstrap import Bootstrap
 import forms
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ app.config.from_mapping(
 
 from db import db, Todo, List, insert_sample  # (1.)
 
-bootstrap = Bootstrap5(app)
+bootstrap = Bootstrap(app)
 
 @app.route('/')
 @app.route('/index')
