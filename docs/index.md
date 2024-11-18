@@ -25,7 +25,7 @@ Matr.-Nr.
 ### [Joe Doe]
 
 About
-: Some info about Joe
+: Some info about Matt
 
 Matr.-Nr.
 : 1234567
