@@ -4,6 +4,9 @@ parent: Team Evaluation
 nav_order: 1
 ---
 
+[!CAUTION]
+Der Rest wird später gelöscht und dient jetzt nur als Vorlage und Orientierung
+
 {: .label }
 Ilja Makarchuk und Matthieu Weinlein
 

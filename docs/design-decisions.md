@@ -3,6 +3,9 @@ title: Design Decisions
 nav_order: 3
 ---
 
+[!CAUTION]
+Der Rest wird später gelöscht und dient jetzt nur als Vorlage und Orientierung
+
 {: .label }
 Ilja Makarchuk & Matthieu Weinlein
 
@@ -37,6 +40,10 @@ Noch keine Decision
 ### Regarded options
 
 [Describe any possible design decision that will solve the problem. Assess these options, e.g., via a simple pro/con list.]
+
+
+[!CAUTION]
+Der Rest wird später gelöscht und dient jetzt nur als Vorlage und Orientierung
 
 ---
 

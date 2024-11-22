@@ -4,6 +4,9 @@ parent: Technical Docs
 nav_order: 3
 ---
 
+[!CAUTION]
+Der Rest wird später gelöscht und dient jetzt nur als Vorlage und Orientierung
+
 {: .label }
 Ilja Makarchuk
 

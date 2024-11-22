@@ -36,7 +36,11 @@ About
 : Student an der Hochschule für Wirtschaft und Recht im vierten Semester
 
 Matr.-Nr.
-: 1234567
+: 77211933341
+
+## Bemerkung
+
+Bei der Entwicklung der Projektidee sind wir beide auf ein Problem gestoßen, dass wir beide uns nicht vollkommen mit dem Projekt identifizieren konnten, ein Portal für Student zu erstellen. Wir haben uns dann hingesetzt und überlegt, in welche Richtung wir gehen können, ohne stark von unserer ursprünglichen Idee abzuweichen und sind mit dem jetzigen Projekt sehr zufrieden. Wir sind jetzt eher in eine spielerische Art gegangen als in ein trockenes Lernportal.
 
 ## Eidesstattliche Erklärung
 
