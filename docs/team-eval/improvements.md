@@ -5,7 +5,7 @@ nav_order: 2
 ---
 
 {: .label }
-[Jane Dane]
+Ilja Makarchuk und Matthieu Weinlein
 
 {: .no_toc }
 # How we would improve next time

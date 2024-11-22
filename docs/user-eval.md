@@ -4,7 +4,7 @@ nav_order: 4
 ---
 
 {: .label }
-Ilja Makarchuk & Matthieu Weinlein
+Matthieu Weinlein
 
 {: .no_toc }
 # User evaluation

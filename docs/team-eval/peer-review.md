@@ -5,7 +5,7 @@ nav_order: 3
 ---
 
 {: .label }
-[Jane Dane]
+Ilja Makarchuk und Matthieu Weinlein
 
 {: .no_toc }
 # Peer review

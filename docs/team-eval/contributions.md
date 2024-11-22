@@ -5,7 +5,7 @@ nav_order: 4
 ---
 
 {: .label }
-[Jane Dane]
+Ilja Makarchuk und Matthieu Weinlein
 
 {: .no_toc }
 # Summary of individual contributions

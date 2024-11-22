@@ -28,11 +28,11 @@ Updated
 
 ### Problem statement
 
-[Describe the problem to be solved or the goal to be achieved. Include relevant context information.]
+Unsicher im Design
 
 ### Decision
 
-[Describe **which** design decision was taken for **what reason** and by **whom**.]
+Noch keine Decision
 
 ### Regarded options
 
