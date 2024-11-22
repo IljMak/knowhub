@@ -3,8 +3,8 @@ title: UI Components
 nav_order: 99
 ---
 
-[!CAUTION]
-Der Rest wird später gelöscht und dient jetzt nur als Vorlage und Orientierung
+{: .attention }
+> Der Rest wird später gelöscht und dient jetzt als Vorlage und Orientierung
 
 
 {: .label }

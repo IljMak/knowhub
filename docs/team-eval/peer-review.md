@@ -4,8 +4,8 @@ parent: Team Evaluation
 nav_order: 3
 ---
 
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+{: .attention }
+> Der Rest wird später gelöscht und dient jetzt als Vorlage und Orientierung
 
 {: .label }
 Ilja Makarchuk und Matthieu Weinlein

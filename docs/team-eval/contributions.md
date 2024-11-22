@@ -4,8 +4,8 @@ parent: Team Evaluation
 nav_order: 4
 ---
 
-[!CAUTION]
-Der Rest wird später gelöscht und dient jetzt nur als Vorlage und Orientierung
+{: .attention }
+> Der Rest wird später gelöscht und dient jetzt als Vorlage und Orientierung
 
 {: .label }
 Ilja Makarchuk und Matthieu Weinlein
