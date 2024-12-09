@@ -8,7 +8,7 @@ nav_order: 1
 
 
 {: .label }
-Ilja Makarchuk
+Matthieu Weinlein
 
 {: .no_toc }
 # Value proposition
