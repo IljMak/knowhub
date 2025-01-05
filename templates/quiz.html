@@ -1,0 +1,25 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Quiz</title>
+    </head>
+    <body>
+        <h1>{{ question.question }}</h1>
+        <form method="POST">
+            <input type="hidden" name="question_id" value="{{ question.id }}">
+            <label>
+                <input type="radio" name="answer" value="{{ question.option_a }}">
+                {{ question.option_a }}
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="{{ question.option_b }}">
+                {{ question.option_b }}
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="{{ question.option_c }}">
+                {{ question.option_c }}
+            </label><br>
+            <button type="submit">Antworten</button>
+        </form>
+    </body>
+    </html>
