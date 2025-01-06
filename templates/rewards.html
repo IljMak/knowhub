@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Belohnungen</title>
+</head>
+<body>
+    <h1>Belohnungen</h1>
+    <p>{{ message }}</p>
+    <h2>Verfügbare Belohnungen:</h2>
+    <ul>
+        {% for reward in rewards %}
+            <li>{{ reward.name }} (Kosten: {{ reward.cost }} Punkte)</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Zurück zur Startseite</a>
+</body>
+</html>
+
