@@ -1,20 +1,13 @@
+<!-- templates/home.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>KnowHub</title>
 </head>
 <body>
-    <h1>Willkommen bei KnowHub, {{ username }}!</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="flash">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    <a href="{{ url_for('module_selection') }}">Quiz starten</a>
-    <a href="{{ url_for('profile') }}">Profil</a>
-    <a href="{{ url_for('rewards') }}">Belohnungen</a>
-    <a href="{{ url_for('logout') }}">Logout</a>
+    <h1>Willkommen bei KnowHub</h1>
+    <a href="/module-selection">Quiz starten</a>
+    <a href="/profile">Profil</a>
+    <a href="/rewards">Belohnungen</a>
 </body>
 </html>

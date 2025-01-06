@@ -1,10 +1,11 @@
+<!-- templates/module_selection.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Modul auswählen</title>
 </head>
 <body>
-    <h1>Wähle ein Modul</h1>
+    <h1>Wähle ein Modul aus</h1>
     {% for module in modules %}
         <div>
             <a href="{{ url_for('quiz', module=module) }}">{{ module }}</a>
