@@ -6,8 +6,16 @@
 </head>
 <body>
     <h1>Willkommen bei KnowHub</h1>
-    <a href="/module-selection">Quiz starten</a>
-    <a href="/profile">Profil</a>
+
+    {% if logged_in %}
+        <p>Hallo, {{ user.username }}!</p>
+        <a href="/module-selection">Quiz starten</a>
+        <a href="/profile">Profil</a>
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Einloggen</a> | <a href="/register">Registrieren</a>
+    {% endif %}
+
     <a href="/rewards">Belohnungen</a>
 </body>
 </html>

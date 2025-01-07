@@ -1,0 +1,21 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="POST">
+        <label for="username">Benutzername:</label>
+        <input type="text" name="username" required><br><br>
+        
+        <label for="password">Passwort:</label>
+        <input type="password" name="password" required><br><br>
+        
+        <button type="submit">Login</button>
+    </form>
+    <p>Kein Konto? <a href="{{ url_for('register') }}">Registriere dich hier</a></p>
+</body>
+</html>
+

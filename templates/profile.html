@@ -4,8 +4,21 @@
     <title>Profil</title>
 </head>
 <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash-message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <h1>Dein Profil</h1>
+    <p>Benutzername: {{ user.username }}</p>
     <p>{{ message }}</p>
-    <a href="/">Zurück zur Startseite</a>
+
+    <div>
+        <a href="{{ url_for('home') }}">Zurück zur Startseite</a> |
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
 </body>
 </html>

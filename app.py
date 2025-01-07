@@ -1,8 +1,10 @@
 # app.py
 import os
-from flask import Flask, render_template, request, redirect, url_for, session
-from db import db, QuizQuestion, Reward
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from db import db, User, QuizQuestion, Reward  # Hier importieren wir das User-Modell
+from werkzeug.security import generate_password_hash, check_password_hash
 import random
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///knowhub.db'
@@ -46,18 +48,27 @@ def create_tables():
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    # Prüfe ob user_id in der Session ist
+    if 'user_id' in session:
+        user = User.query.get(session['user_id'])
+        return render_template('home.html', logged_in=True, user=user)
+    return render_template('home.html', logged_in=False)
 
 # Route zur Modulauswahl-Seite
 @app.route('/module-selection')
 def module_selection():
     # Hier werden alle verfügbaren Module (z. B. VWL, Rechnungswesen) angezeigt
-    modules = ['VWL', 'Rechnungswesen','Wirtschaftsrecht' ]  # Du kannst dies dynamisch aus der Datenbank holen
+    modules = ['VWL', 'Rechnungswesen']  # Du kannst dies dynamisch aus der Datenbank holen
     return render_template('module_selection.html', modules=modules)
 
 # Route zum Starten des Quiz für das gewählte Modul
 @app.route('/quiz/<module>', methods=['GET', 'POST'])
 def quiz(module):
+    # Überprüfen ob User eingeloggt ist
+    if 'user_id' not in session:
+        flash('Bitte logge dich erst ein.')
+        return redirect(url_for('login'))
+
     # Sicherstellen, dass Fragen für das Modul existieren
     questions = QuizQuestion.query.filter_by(module=module).all()
 
@@ -77,18 +88,84 @@ def quiz(module):
 
         if question.correct_answer == selected_answer:
             session['points'] = session.get('points', 0) + 10
-            return redirect(url_for('quiz', module=module))
+            flash('Richtige Antwort! +10 Punkte')
+        else:
+            flash('Leider falsch. Versuche es noch einmal!')
+            
+        return redirect(url_for('quiz', module=module))
 
     return render_template('quiz.html', question=question)
 
+# Route für die Registrierung
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        hashed_password = generate_password_hash(password)
+
+
+        existing_user = User.query.filter_by(username=username).first()
+
+        if existing_user:
+            flash('Benutzername bereits vergeben, bitte wähle einen anderen.')
+            return redirect(url_for('register'))
+
+        new_user = User(username=username, password=hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash('Registrierung erfolgreich! Du kannst dich nun einloggen.')
+        return redirect(url_for('login'))
+
+    return render_template('register.html')
+
+# Route für das Login
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        user = User.query.filter_by(username=username).first()
+
+        if user and check_password_hash(user.password, password):
+            session['user_id'] = user.id
+            flash('Erfolgreich eingeloggt!')
+            return redirect(url_for('home'))
+        
+        flash('Ungültiger Benutzername oder Passwort!')
+        return redirect(url_for('login'))
+
+    # Wenn der Benutzer bereits eingeloggt ist, leite zur Home-Seite weiter
+    if 'user_id' in session:
+        return redirect(url_for('home'))
+        
+    return render_template('login.html')
+
+
+# Logout 
+@app.route('/logout')
+def logout():
+    session.pop('user_id', None)
+    flash('Du wurdest ausgeloggt.')
+    return redirect(url_for('home'))
+
 @app.route('/profile')
 def profile():
+    if 'user_id' not in session:
+        flash('Bitte logge dich erst ein.')
+        return redirect(url_for('login'))
+
+    user = User.query.get(session['user_id'])
     points = session.get('points', 0)
+    
     if points == 0:
         message = "Du hast noch keine Punkte gesammelt."
     else:
         message = f"Du hast {points} Punkte."
-    return render_template('profile.html', points=points, message=message)
+    
+    return render_template('profile.html', user=user, points=points, message=message)
 
 @app.route('/rewards')
 def rewards():
