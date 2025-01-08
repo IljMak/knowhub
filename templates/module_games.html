@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}{{ module }} - Spiele{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold text-gray-900">{{ module }} - Lernspiele</h1>
+        <a href="{{ url_for('module_selection') }}" class="button-secondary">
+            Zurück zur Modulauswahl
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% if has_quiz %}
+        <a href="{{ url_for('quiz', module=module) }}" class="card card-hover">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Quiz</h3>
+                <p class="text-gray-600">Teste dein Wissen in einem interaktiven Quiz</p>
+            </div>
+        </a>
+        {% endif %}
+
+        {% if has_definitions %}
+        <a href="{{ url_for('definition_game', module=module) }}" class="card card-hover">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Definitionen</h3>
+                <p class="text-gray-600">Lerne wichtige Begriffe und ihre Bedeutungen</p>
+            </div>
+        </a>
+        {% endif %}
+
+        {% if has_tf %}
+        <a href="{{ url_for('true_false_game', module=module) }}" class="card card-hover">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Wahr oder Falsch</h3>
+                <p class="text-gray-600">Überprüfe deine Kenntnisse mit Wahr/Falsch-Fragen</p>
+            </div>
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

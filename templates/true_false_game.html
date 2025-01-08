@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Wahr oder Falsch - {{ question.module }}{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-3xl font-bold text-gray-900">Wahr oder Falsch?</h1>
+        <div class="flex space-x-4">
+            <div id="timer" class="text-xl font-semibold text-blue-600">
+                Verbleibende Zeit: {{ timer_seconds }} Sekunden
+            </div>
+            <a href="{{ url_for('module_games', module=question.module) }}" class="button-secondary">
+                Zurück zum Modul
+            </a>
+        </div>
+    </div>
+
+    <div class="card max-w-3xl mx-auto">
+        <div class="space-y-6">
+            <p class="text-lg text-gray-800">{{ question.statement }}</p>
+
+            <form method="POST" id="trueFalseForm" class="space-y-4">
+                <input type="hidden" name="question_id" value="{{ question.id }}">
+                <input type="hidden" name="time_expired" id="timeExpired" value="false">
+
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="block">
+                        <input type="radio" name="answer" value="true" class="hidden peer" required>
+                        <div class="p-4 rounded-lg border-2 text-center peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 cursor-pointer transition-colors duration-200">
+                            Wahr
+                        </div>
+                    </label>
+
+                    <label class="block">
+                        <input type="radio" name="answer" value="false" class="hidden peer" required>
+                        <div class="p-4 rounded-lg border-2 text-center peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 cursor-pointer transition-colors duration-200">
+                            Falsch
+                        </div>
+                    </label>
+                </div>
+
+                <button type="submit" class="button-primary w-full">Antworten</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    let timeLeft = {{ timer_seconds }};
+    const timerElement = document.getElementById('timer');
+    const form = document.getElementById('trueFalseForm');
+    const timeExpiredInput = document.getElementById('timeExpired');
+    
+    const timer = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = `Verbleibende Zeit: ${timeLeft} Sekunden`;
+        
+        if (timeLeft <= 3) {
+            timerElement.classList.add('text-red-600');
+        }
+        
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            timeExpiredInput.value = 'true';
+            form.submit();
+        }
+    }, 1000);
+</script>
+{% endblock %}

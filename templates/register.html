@@ -1,20 +1,34 @@
-<!-- templates/register.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registrierung</title>
-</head>
-<body>
-    <h1>Registrierung</h1>
-    <form method="POST">
-        <label for="username">Benutzername:</label>
-        <input type="text" name="username" required><br><br>
-        
-        <label for="password">Passwort:</label>
-        <input type="password" name="password" required><br><br>
-        
-        <button type="submit">Registrieren</button>
-    </form>
-    <p>Schon ein Konto? <a href="{{ url_for('login') }}">Einloggen</a></p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Registrierung - KnowHub{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto space-y-6">
+    <h1 class="text-3xl font-bold text-gray-900">Registrierung</h1>
+    
+    <div class="card">
+        <form method="POST" class="space-y-4">
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700">Benutzername</label>
+                <input type="text" name="username" required 
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+            </div>
+            
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Passwort</label>
+                <input type="password" name="password" required 
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+            </div>
+            
+            <button type="submit" class="button-primary w-full">Registrieren</button>
+        </form>
+    </div>
+    
+    <p class="text-center text-gray-600">
+        Schon ein Konto? 
+        <a href="{{ url_for('login') }}" class="text-blue-600 hover:text-blue-700 font-medium">
+            Einloggen
+        </a>
+    </p>
+</div>
+{% endblock %}

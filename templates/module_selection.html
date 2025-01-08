@@ -1,16 +1,20 @@
-<!-- templates/module_selection.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Modul auswählen</title>
-</head>
-<body>
-    <h1>Wähle ein Modul aus</h1>
-    {% for module in modules %}
-        <div>
-            <a href="{{ url_for('quiz', module=module) }}">{{ module }}</a>
-        </div>
-    {% endfor %}
-    <a href="/">Zurück zur Startseite</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Module - KnowHub{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <h1 class="text-3xl font-bold text-gray-900">Wähle ein Modul</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for module in modules %}
+        <a href="{{ url_for('module_games', module=module) }}" class="card card-hover">
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ module }}</h3>
+                <p class="text-gray-600">Lerne und übe die Inhalte des Moduls {{ module }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

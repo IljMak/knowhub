@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Test Review - KnowHub{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex justify-between items-center">
+        <h1 class="text-3xl font-bold text-gray-900">Review: {{ test.name }}</h1>
+        <a href="{{ url_for('profile') }}" class="button-secondary">
+            Zurück zum Profil
+        </a>
+    </div>
+    
+    <div class="space-y-6">
+        {% for question in questions %}
+        <div class="card">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Frage {{ loop.index }}</h3>
+            <p class="text-gray-700 mb-6">{{ question.question }}</p>
+            
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="text-lg font-medium text-gray-900 mb-2">Antwort:</h4>
+                <p class="text-gray-700">{{ question.answer }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

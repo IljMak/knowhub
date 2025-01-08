@@ -1,21 +1,64 @@
-<!-- templates/home.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>KnowHub</title>
-</head>
-<body>
-    <h1>Willkommen bei KnowHub</h1>
+{% extends "base.html" %}
+
+{% block title %}Willkommen - KnowHub{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+    <!-- Hero Section -->
+    <div class="text-center space-y-4">
+        <h1 class="text-4xl font-bold text-gray-900">Willkommen bei KnowHub</h1>
+        {% if logged_in %}
+            <p class="text-xl text-gray-600">Hallo, {{ user.username }}!</p>
+        {% else %}
+            <p class="text-xl text-gray-600">Deine Plattform zum Lernen und Üben</p>
+        {% endif %}
+    </div>
 
     {% if logged_in %}
-        <p>Hallo, {{ user.username }}!</p>
-        <a href="/module-selection">Quiz starten</a>
-        <a href="/profile">Profil</a>
-        <a href="/logout">Logout</a>
-    {% else %}
-        <a href="/login">Einloggen</a> | <a href="/register">Registrieren</a>
-    {% endif %}
+        <!-- Action Cards for logged-in users -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Learn Card -->
+            <a href="/module-selection" class="card card-hover">
+                <div class="p-6 text-center">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-3">Lernen</h2>
+                    <p class="text-gray-600">Starte jetzt mit dem Lernen und teste dein Wissen</p>
+                </div>
+            </a>
 
-    <a href="/rewards">Belohnungen</a>
-</body>
-</html>
+            <!-- Profile Card -->
+            <a href="/profile" class="card card-hover">
+                <div class="p-6 text-center">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-3">Profil</h2>
+                    <p class="text-gray-600">Verwalte dein Profil und siehe deinen Fortschritt</p>
+                </div>
+            </a>
+
+            <!-- Shop Card -->
+            <a href="/shop" class="card card-hover">
+                <div class="p-6 text-center">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-3">Shop</h2>
+                    <p class="text-gray-600">Entdecke neue Lerninhalte und Belohnungen</p>
+                </div>
+            </a>
+        </div>
+    {% else %}
+        <!-- Login/Register Section for visitors -->
+        <div class="flex flex-col items-center space-y-6">
+            <div class="max-w-lg text-center">
+                <p class="text-gray-600 mb-6">
+                    Melde dich an oder erstelle ein kostenloses Konto, um mit dem Lernen zu beginnen.
+                </p>
+            </div>
+            
+            <div class="flex space-x-4">
+                <a href="/login" class="button-primary">
+                    Einloggen
+                </a>
+                <a href="/register" class="button-secondary">
+                    Registrieren
+                </a>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

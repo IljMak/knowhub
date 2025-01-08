@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Definitionen - {{ terms[0].module }}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto space-y-6">
+    <div class="card">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-900">Definitionen verbinden</h1>
+            <div class="text-lg font-semibold text-blue-600" id="timer">20</div>
+        </div>
+
+        <form method="POST" id="definition-form">
+            <input type="hidden" name="time_expired" value="false" id="time-expired">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Begriffe (fest) -->
+                <div class="space-y-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Begriffe</h2>
+                    {% for term in terms %}
+                    <div class="p-4 bg-blue-50 rounded-lg">
+                        <p class="font-medium">{{ term.term }}</p>
+                        <select name="answers[]" class="mt-2 w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            <option value="">Wähle eine Definition...</option>
+                            {% for def_id, definition in definitions %}
+                            <option value="{{ def_id }}">{{ definition }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Definitionen (nur zur Ansicht) -->
+                <div class="space-y-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Definitionen</h2>
+                    {% for def_id, definition in definitions %}
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        {{ definition }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <button type="submit" class="button-primary w-full">Überprüfen</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+let timeLeft = {{ timer_seconds }};
+const timerElement = document.getElementById('timer');
+const timeExpiredInput = document.getElementById('time-expired');
+const form = document.getElementById('definition-form');
+
+const timer = setInterval(() => {
+    timeLeft--;
+    timerElement.textContent = timeLeft;
+    
+    if (timeLeft <= 0) {
+        clearInterval(timer);
+        timeExpiredInput.value = 'true';
+        form.submit();
+    }
+}, 1000);
+</script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{{ test.name }} - KnowHub{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex justify-between items-center">
+        <h1 class="text-3xl font-bold text-gray-900">{{ test.name }}</h1>
+        <p class="text-lg text-gray-600">Frage {{ question_number }} von {{ total_questions }}</p>
+    </div>
+    
+    <div class="card">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Frage:</h2>
+        <p class="text-gray-700">{{ question.question }}</p>
+        
+        {% if show_answer %}
+        <div class="mt-6 pt-6 border-t border-gray-200">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Antwort:</h2>
+            <p class="text-gray-700">{{ question.answer }}</p>
+        </div>
+        {% endif %}
+        
+        <div class="mt-6 flex justify-end space-x-4">
+            {% if not show_answer %}
+                <a href="{{ url_for('show_answer', test_id=test.id, question_number=question_number) }}" 
+                   class="button-primary">
+                    Antwort anzeigen
+                </a>
+            {% else %}
+                {% if is_last_question %}
+                    <a href="{{ url_for('complete_test', test_id=test.id) }}" 
+                       class="bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-200">
+                        Test abschließen
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('show_test_question', test_id=test.id, question_number=question_number+1) }}" 
+                       class="button-primary">
+                        Nächste Frage
+                    </a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="flex justify-end">
+        <a href="{{ url_for('profile') }}" class="button-secondary">
+            Zurück zum Profil
+        </a>
+    </div>
+</div>
+{% endblock %}

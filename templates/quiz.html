@@ -1,34 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Quiz</title>
-</head>
-<body>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="flash-message">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    
-    <h1>{{ question.question }}</h1>
-    <form method="POST">
-        <input type="hidden" name="question_id" value="{{ question.id }}">
-        <label>
-            <input type="radio" name="answer" value="{{ question.option_a }}">
-            {{ question.option_a }}
-        </label><br>
-        <label>
-            <input type="radio" name="answer" value="{{ question.option_b }}">
-            {{ question.option_b }}
-        </label><br>
-        <label>
-            <input type="radio" name="answer" value="{{ question.option_c }}">
-            {{ question.option_c }}
-        </label><br>
-        <button type="submit">Antworten</button>
-    </form>
-    <a href="/">Zurück zur Startseite</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Quiz - {{ question.module }}{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-3xl font-bold text-gray-900">{{ question.module }} Quiz</h1>
+        <div class="flex space-x-4">
+            <div id="timer" class="text-xl font-semibold text-blue-600">10</div>
+            <a href="{{ url_for('module_games', module=question.module) }}" class="button-secondary">
+                Zurück zum Modul
+            </a>
+        </div>
+    </div>
+
+    <div class="card max-w-3xl mx-auto">
+        <div class="space-y-6">
+            <p class="text-lg text-gray-800">{{ question.question }}</p>
+
+            <form method="POST" id="quiz-form" class="space-y-4">
+                <input type="hidden" name="question_id" value="{{ question.id }}">
+                <input type="hidden" name="time_expired" value="false" id="time-expired">
+
+                {% for option in [question.option_a, question.option_b, question.option_c] %}
+                <label class="block">
+                    <input type="radio" name="answer" value="{{ option }}" class="hidden peer">
+                    <div class="p-4 rounded-lg border-2 peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:bg-gray-50 cursor-pointer transition-colors duration-200">
+                        {{ option }}
+                    </div>
+                </label>
+                {% endfor %}
+
+                <button type="submit" class="button-primary w-full">Antwort überprüfen</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    let timeLeft = 10;
+    const timerElement = document.getElementById('timer');
+    const timeExpiredInput = document.getElementById('time-expired');
+    const form = document.getElementById('quiz-form');
+
+    const timer = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = timeLeft;
+        
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            timeExpiredInput.value = 'true';
+            form.submit();
+        }
+    }, 1000);
+</script>
+{% endblock %}
