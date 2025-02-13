@@ -3,8 +3,7 @@ title: User Evaluation
 nav_order: 4
 ---
 
-{: .attention }
-> Der Rest wird später gelöscht und dient jetzt als Vorlage und Orientierung
+
 
 {: .label }
 Matthieu Weinlein

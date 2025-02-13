@@ -3,8 +3,6 @@ title: UI Components
 nav_order: true
 ---
 
-{: .attention }
-> Der Rest wird später gelöscht und dient jetzt als Vorlage und Orientierung
 
 
 {: .label }
