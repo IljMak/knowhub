@@ -29,7 +29,7 @@ For a quick reference of the markdown syntax, visit [this page](https://github.c
 ![get_regestrierung](assets/images/Regestrierung.png)
 ```
 
-![get_list_todos_sample](assets/images/fswd-intro_02.png)
+![get_regestrierung](assets/images/Regestrierung.png)
 
 ## Callouts
 
