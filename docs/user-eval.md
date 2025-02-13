@@ -19,30 +19,31 @@ Matthieu Weinlein
 {: toc }
 </details>
 
-## 01: [Title]
+## 01
 
-### Meta
+### Usability Testing – First-Time User Experience
 
 Status
-: **Work in progress** - Done - Obsolete
+: Work in progress - **Done** - Obsolete
 
 Updated
-: DD-MMM-YYYY
+: 09-01-2025
 
 ### Goal
 
-[Describe the goal of this evaluation, for example as a research question like: "How long does it take to register a new account and what is the drop-out rate?"]
+Evaluieren, wie einfach und intuitiv die Web-App für neue Nutzer:innen zu verstehen ist. Fokus auf Registrierung, erste Interaktion und Navigation.
 
 ### Method
 
-[Describe how you proceed to achieve your evaluation goal. Be as specific as possible: others should be able to replicate your evaluation by following the description on this section.]
+Testen von der Web-App, selber die Module spielen und ein eigenes Konto anlegen
 
 ### Results
 
-[Present the main results of your evaluation, for example: "On average, users need 3 min to register. The drop-out rate was 70%. Users that didn't complete provided the following reasons: ..."]
+Durchschnittlich bruacht man unter 2 Minuten um sich zu Regestrieren und unter 5 Minuten um schon das erste Modul zu spielen.
 
 ### Implications
 
-[What did you learn from this evaluation and what will you change to improve? Example: "We aim to decrease the drop-out rate by not asking for a birth date. We will re-run this evaluation to measure the impact."]
+Vebesserung des Menüs in Form von einer Navigationsleiste
+Simples gehaltendes Design
+Hinzufügen von kleinen Notes wie "Regestrierung erfolgreich!" oder "+5 Punkte"
 
----

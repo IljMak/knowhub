@@ -1,6 +1,6 @@
 ---
 title: UI Components
-nav_order: 99
+nav_order: true
 ---
 
 {: .attention }
@@ -28,7 +28,7 @@ For a quick reference of the markdown syntax, visit [this page](https://github.c
 ## Images
 
 ```markdown
-![get_list_todos_sample](assets/images/fswd-intro_02.png)
+![get_regestrierung](assets/images/Regestrierung.png)
 ```
 
 ![get_list_todos_sample](assets/images/fswd-intro_02.png)

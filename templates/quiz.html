@@ -1,3 +1,4 @@
+{# quiz.html #}
 {% extends "base.html" %}
 
 {% block title %}Quiz - {{ question.module }}{% endblock %}
@@ -37,13 +38,34 @@
     </div>
 </div>
 
-<script>
-    let timeLeft = 10;
-    const timerElement = document.getElementById('timer');
-    const timeExpiredInput = document.getElementById('time-expired');
-    const form = document.getElementById('quiz-form');
+<!-- Result Modal -->
+<div id="resultModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg max-w-md w-full mx-4">
+        <h2 id="resultTitle" class="text-2xl font-bold mb-4"></h2>
+        <p id="resultMessage" class="mb-6"></p>
+        <div class="flex justify-end space-x-4">
+            <button onclick="continueGame()" class="button-primary">Weiterspielen</button>
+            <a href="{{ url_for('module_games', module=question.module) }}" class="button-secondary">Beenden</a>
+        </div>
+    </div>
+</div>
 
-    const timer = setInterval(() => {
+<script>
+let timeLeft = 10;
+let timer;
+const timerElement = document.getElementById('timer');
+const timeExpiredInput = document.getElementById('time-expired');
+const form = document.getElementById('quiz-form');
+const resultModal = document.getElementById('resultModal');
+const resultTitle = document.getElementById('resultTitle');
+const resultMessage = document.getElementById('resultMessage');
+
+function startTimer() {
+    clearInterval(timer); // Stelle sicher, dass kein alter Timer läuft
+    timeLeft = 10; // Reset timer
+    timerElement.textContent = timeLeft;
+    
+    timer = setInterval(() => {
         timeLeft--;
         timerElement.textContent = timeLeft;
         
@@ -53,5 +75,35 @@
             form.submit();
         }
     }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+}
+
+function showResultModal(message) {
+    stopTimer(); // Stoppe den Timer, wenn das Modal angezeigt wird
+    resultTitle.textContent = message.includes("+") ? "Richtig!" : "Falsch!";
+    resultMessage.textContent = message;
+    resultModal.classList.remove('hidden');
+}
+
+function continueGame() {
+    resultModal.classList.add('hidden');
+    window.location.reload();
+}
+
+// Starte den Timer beim Laden der Seite
+document.addEventListener('DOMContentLoaded', () => {
+    startTimer();
+});
+
+// Zeige Modal nach Form-Submission
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        const message = "{{ messages[0] }}";
+        showResultModal(message);
+    {% endif %}
+{% endwith %}
 </script>
 {% endblock %}

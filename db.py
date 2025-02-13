@@ -10,6 +10,8 @@ class User(db.Model):
     password = db.Column(db.String(100), nullable=False)
     points = db.Column(db.Integer, default=0)
     tests = db.relationship('UserTest', backref='user', lazy=True)
+    unlocked_modules = db.relationship('UnlockedModule', backref='user', lazy=True)
+    free_unlocks_remaining = db.Column(db.Integer, default=2)  # Neue Spalte für verbleibende kostenlose Freischaltungen
 
 class QuizQuestion(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -67,3 +69,10 @@ class UserTest(db.Model):
     completed = db.Column(db.Boolean, default=False)
     purchase_date = db.Column(db.DateTime, default=db.func.current_timestamp())
     test = db.relationship('Test', backref='user_tests', lazy=True)
+
+class UnlockedModule(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    module_name = db.Column(db.String(100), nullable=False)
+    unlocked_date = db.Column(db.DateTime, default=db.func.current_timestamp())
+    is_free = db.Column(db.Boolean, default=False)

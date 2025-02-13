@@ -4,16 +4,47 @@
 
 {% block content %}
 <div class="space-y-6">
-    <h1 class="text-3xl font-bold text-gray-900">Wähle ein Modul</h1>
+    <div class="flex justify-between items-center">
+        <h1 class="text-3xl font-bold text-gray-900">Wähle ein Modul</h1>
+        <div class="text-right">
+            <p class="text-gray-600">Verfügbare Punkte: {{ points }}</p>
+            <p class="text-gray-600">Kostenlose Freischaltungen: {{ free_unlocks }}</p>
+        </div>
+    </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for module in modules %}
-        <a href="{{ url_for('module_games', module=module) }}" class="card card-hover">
+        <div class="card">
             <div class="p-6">
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ module }}</h3>
-                <p class="text-gray-600">Lerne und übe die Inhalte des Moduls {{ module }}</p>
+                <p class="text-gray-600 mb-4">Lerne und übe die Inhalte des Moduls {{ module }}</p>
+                
+                {% if module in unlocked_modules %}
+                    <a href="{{ url_for('module_games', module=module) }}" 
+                       class="button-primary w-full text-center block">
+                        Modul starten
+                    </a>
+                {% else %}
+                    <div class="space-y-2">
+                        {% if free_unlocks > 0 %}
+                        <form action="{{ url_for('unlock_module', module=module) }}" method="POST">
+                            <input type="hidden" name="unlock_type" value="free">
+                            <button type="submit" class="button-primary w-full">
+                                Kostenlos freischalten
+                            </button>
+                        </form>
+                        {% endif %}
+                        <form action="{{ url_for('unlock_module', module=module) }}" method="POST">
+                            <input type="hidden" name="unlock_type" value="points">
+                            <button type="submit" class="button-secondary w-full" 
+                                    {% if points < 50 %}disabled{% endif %}>
+                                Für 50 Punkte freischalten
+                            </button>
+                        </form>
+                    </div>
+                {% endif %}
             </div>
-        </a>
+        </div>
         {% endfor %}
     </div>
 </div>

@@ -1,7 +1,7 @@
 # app.py
 import os
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from db import db, User, QuizQuestion, ShopItem, Purchase, DefinitionPair, TrueFalseQuestion, Test, UserTest, TestQuestion # Hier importieren wir das User-Modell
+from db import db, User, QuizQuestion, ShopItem, Purchase, DefinitionPair, TrueFalseQuestion, Test, UserTest, TestQuestion, UnlockedModule # Hier importieren wir das User-Modell
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
 
@@ -121,7 +121,13 @@ def module_selection():
     if 'user_id' not in session:
         return redirect(url_for('login'))
     
-    # Hole nur die Module, für die es tatsächlich Inhalte gibt
+    user = User.query.get(session['user_id'])
+    if user is None:
+        session.pop('user_id', None)
+        flash('Bitte logge dich erst ein.')
+        return redirect(url_for('login'))
+    
+    # Hole alle verfügbaren Module
     quiz_modules = db.session.query(QuizQuestion.module).distinct().all()
     definition_modules = db.session.query(DefinitionPair.module).distinct().all()
     tf_modules = db.session.query(TrueFalseQuestion.module).distinct().all()
@@ -129,15 +135,79 @@ def module_selection():
     # Kombiniere alle Module und entferne Duplikate
     all_modules = set([m[0] for m in quiz_modules + definition_modules + tf_modules])
     
-    return render_template('module_selection.html', modules=sorted(all_modules))
+    # Hole die freigeschalteten Module des Users
+    unlocked_modules = {um.module_name for um in user.unlocked_modules}
+    
+    return render_template('module_selection.html', 
+                         modules=sorted(all_modules),
+                         unlocked_modules=unlocked_modules,
+                         free_unlocks=user.free_unlocks_remaining,
+                         points=user.points)
 
+
+@app.route('/unlock-module/<module>', methods=['POST'])
+def unlock_module(module):
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+        
+    user = User.query.get(session['user_id'])
+    unlock_type = request.form.get('unlock_type')
+    
+    existing_unlock = UnlockedModule.query.filter_by(
+        user_id=user.id, 
+        module_name=module
+    ).first()
+    
+    if existing_unlock:
+        flash('Dieses Modul ist bereits freigeschaltet!')
+        return redirect(url_for('module_selection'))
+    
+    if unlock_type == 'free' and user.free_unlocks_remaining > 0:
+        user.free_unlocks_remaining -= 1
+        new_unlock = UnlockedModule(
+            user_id=user.id,
+            module_name=module,
+            is_free=True
+        )
+        db.session.add(new_unlock)
+        flash(f'Modul {module} wurde kostenlos freigeschaltet!')
+        
+    elif unlock_type == 'points' and user.points >= 50:
+        user.points -= 50
+        new_unlock = UnlockedModule(
+            user_id=user.id,
+            module_name=module,
+            is_free=False
+        )
+        db.session.add(new_unlock)
+        flash(f'Modul {module} wurde für 50 Punkte freigeschaltet!')
+        
+    else:
+        if unlock_type == 'free':
+            flash('Keine kostenlosen Freischaltungen mehr verfügbar!')
+        else:
+            flash('Nicht genügend Punkte! (50 Punkte benötigt)')
+        return redirect(url_for('module_selection'))
+    
+    db.session.commit()
+    return redirect(url_for('module_selection'))
 
 @app.route('/module/<module>/games')
 def module_games(module):
     if 'user_id' not in session:
         return redirect(url_for('login'))
     
-    # Prüfe, welche Spielmodi für dieses Modul verfügbar sind
+    user = User.query.get(session['user_id'])
+    
+    is_unlocked = UnlockedModule.query.filter_by(
+        user_id=user.id,
+        module_name=module
+    ).first() is not None
+    
+    if not is_unlocked:
+        flash('Dieses Modul muss erst freigeschaltet werden!')
+        return redirect(url_for('module_selection'))
+    
     has_quiz = QuizQuestion.query.filter_by(module=module).first() is not None
     has_definitions = DefinitionPair.query.filter_by(module=module).first() is not None
     has_tf = TrueFalseQuestion.query.filter_by(module=module).first() is not None

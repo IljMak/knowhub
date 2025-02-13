@@ -3,12 +3,11 @@ title: Value Proposition
 nav_order: 1
 ---
 
-{: .attention }
-> Der Rest wird später gelöscht und dient jetzt als Vorlage und Orientierung
+
 
 
 {: .label }
-Matthieu Weinlein
+Ilja Makarchuk
 
 {: .no_toc }
 # Value proposition
@@ -22,16 +21,21 @@ Matthieu Weinlein
 
 ## The problem
 
-[Describe which problem your application tackles and why it is relevant.]
+ Studierende haben oft Schwierigkeiten, sich für Module an der Uni zu motivieren und effektiv zu lernen. Klassische Lehrmethoden sind oft trocken, wenig interaktiv und führen nicht immer zu langfristigem Wissenserhalt. Zudem fehlt es an spielerischen und sozialen Elementen, die das Lernen unterhaltsamer und nachhaltiger machen.
 
-## Our solution
+ ## Our solution
 
-[Describe why and how your app solves the stated problem. Don't over-promise: the description should match what your app actually delivers.]
+Unsere Web-App verwandelt das Lernen in ein spielerisches Erlebnis. Durch interaktive Aufgaben, Gamification-Elemente (wie Punkte, Badges und Leaderboards) und sozial motivierte Herausforderungen bleibt das Lernen spannend und motivierend. Die Inhalte sind an die spezifischen Module der Uni angepasst und ermöglichen eine flexible, ortsunabhängige und selbstbestimmte Lernerfahrung.
 
 ## Target user
 
-[Scope your target user(s), e.g., with the help of personas.]
+Studenten der HWR
 
 ## Customer journey
 
-[Illustrate the customer journey, from the app's entry point to a completed task. You might want to show the customer journey as (schematic) screen flows.]
+1. Regestrierung/Einloggen
+2. App Endtecken
+3. "Lernen"
+4. Module auswählen
+5. Belohnungen freischalten
+6. Fortschritt beobachten
