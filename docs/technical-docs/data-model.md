@@ -24,4 +24,4 @@ Ilja Makarchuk
 
 
 Datamodel:
-![get_wahroderfalsch](assets/images/Knowhub.png)
+![get_Knowhub](assets/images/Knowhub.png)
