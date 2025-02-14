@@ -35,7 +35,7 @@ Dies ist eine Lernplattform namens "KnowHub", die verschiedene interaktive Lernm
 
 Die wichtigsten Komponenten sind:
 
-1. Benutzer-Management:
+1.Benutzer-Management:
 
 
 - Login/Register/Logout Funktionalität
@@ -43,7 +43,7 @@ Die wichtigsten Komponenten sind:
 - Session-Management für authentifizierte Nutzer
 
 
-2. Lernsystem:
+2.Lernsystem:
 
 
 Module-Selection: Verwaltung der freigeschalteten und verfügbaren Module
@@ -52,7 +52,7 @@ Drei Spieltypen:
   - Definition Game (/definition-game/<module>)
   - True/False Game (/true-false-game/<module>)
 
-3. Shop & Belohnungssystem:
+3.Shop & Belohnungssystem:
 
 
 - Punktebasierter Shop für Tests und Items
@@ -61,7 +61,7 @@ Drei Spieltypen:
 
 ## Cross-cutting concerns
 
-1. Datenbankdesign:
+1.Datenbankdesign:
 
 
 - SQLite als Datenbank
@@ -69,7 +69,7 @@ Drei Spieltypen:
 - Automatische Initialisierung mit Beispieldaten
 
 
-2. Punktemechanik:
+2.Punktemechanik:
 
 
 - Punkte als zentrale Währung
@@ -78,7 +78,7 @@ Drei Spieltypen:
 - Verwendung zum Freischalten von Modulen oder Kauf von Items
 
 
-Modulsystem:
+3.Modulsystem:
 
 
 - Module können entweder kostenlos oder mit Punkten freigeschaltet werden
