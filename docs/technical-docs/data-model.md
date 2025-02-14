@@ -22,4 +22,4 @@ Ilja Makarchuk
 
 
 Datamodel:
-![get_knowhub](assets/images/Knowhub.png)
+(assets/images/DataModel.png)
