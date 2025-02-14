@@ -4,8 +4,7 @@ parent: Team Evaluation
 nav_order: 3
 ---
 
-{: .attention }
-> Der Rest wird später gelöscht und dient jetzt als Vorlage und Orientierung
+
 
 {: .label }
 Ilja Makarchuk und Matthieu Weinlein
@@ -20,16 +19,16 @@ Ilja Makarchuk und Matthieu Weinlein
 {: toc }
 </details>
 
-## [team member] - review 1
+## Ilja Makarchuk- review 1
 
 ### My observation (Wahrnehmung)
 
-[A specific observation, regarding know-how, effectiveness, team work or from another relevant area]
+Objektiv kann man sagen, dass wir gut zusammen gearbeitet haben, doch die Zeiteinschätzung könnte besser sein
 
 ### Effect on me (Wirkung)
 
-[What positive or negative effect did this observation have on the reviewer?]
+Wir haben gute deadline eingehalten aber in der Zukunft könnten wir früher schon wichtige Design Decisions treffen damit diese nicht später kurzfristig entschieden werden
 
 ### Tip for the future (Wunsch)
 
-[What should be changed or strengthened for the point of view of the reviewer?]
+Früher Anfangen und nicht verschieben

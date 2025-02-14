@@ -27,62 +27,77 @@ Ilja Makarchuk
 {: toc }
 </details>
 
-## [Section / module]
+## Modul-Selektion
 
-### `function_definition()`
+### `module_selection()`
 
-**Route:** `/route/`
-
-**Methods:** `POST` `GET` `PATCH` `PUT` `DELETE`
-
-**Purpose:** [Short explanation of what the function does and why]
-
-**Sample output:**
-
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
-
----
-
-## [Example, delete this section] Show to-do lists
-
-### `get_lists()`
-
-**Route:** `/lists/`
+**Route:** `/module-selection`
 
 **Methods:** `GET`
 
-**Purpose:** Show all to-do lists.
+**Purpose:** Zeigt dem Benutzer alle verfügbaren Lernmodule an und verwaltet deren Freischaltungsstatus. Unterscheidet zwischen bereits freigeschalteten und noch gesperrten Modulen. Zeigt außerdem die verbleibenden kostenlosen Freischaltungen und den Punktestand an.
 
 **Sample output:**
 
-![get_lists() sample](../assets/images/fswd-intro_00.png)
+Verfügbare Module:
+- VWL [Freigeschaltet]
+- Rechnungswesen [Gesperrt]
+Freie Freischaltungen: 2
+Punktestand: 150
 
 ---
 
-### `get_list_todos(list_id)`
+## Quiz
 
-**Route:** `/lists/<int:list_id>`
+### `quiz()`
 
-**Methods:** `GET`
+**Route:** `/quiz/<module>`
 
-**Purpose:** Retrieve all to-do items of to-do list with ID `list_id` from database and present to user.
+**Methods:** `GET` `POST`
+
+**Purpose:** Implementiert das Quiz-Spiel für ein spezifisches Modul. Wählt zufällig eine Frage aus, verarbeitet die Benutzerantwort und aktualisiert den Punktestand (+10 für richtige, -5 für falsche Antworten oder Zeitablauf).
 
 **Sample output:**
 
-![get_list_todos() sample](../assets/images/fswd-intro_02.png)
+Frage: Was ist VWL?
+A) Volkswirtschaftslehre
+B) Versicherung und Leben
+C) Verbrauchswirtschaft
+Timer: 10s
 
 ---
 
-## [Example, delete this section] Insert sample data
+## Definition-Spiel
 
-### `run_insert_sample()`
+### `definition_game()`
 
-**Route:** `/insert/sample`
+**Route:** `/definition-game/<module>`
 
-**Methods:** `GET`
+**Methods:** `GET` `POST`
 
-**Purpose:** Flush the database and insert sample data set
+**Purpose:** Stellt ein Zuordnungsspiel bereit, bei dem Begriffe ihren korrekten Definitionen zugeordnet werden müssen. Bewertet die Antworten und vergibt Punkte basierend auf der Genauigkeit der Zuordnungen.
 
 **Sample output:**
 
-Browser shows: `Database flushed and populated with some sample data.`
+Begriffe:          Definitionen:
+1. Angebot        [ ] Die Menge an Gütern, die Konsumenten kaufen möchten
+2. Nachfrage      [ ] Die Menge an Gütern, die Produzenten verkaufen möchten
+Timer: 20s
+---
+
+## Test-Anzeige
+
+### `show_test_question()`
+
+**Route:** `/show-test-question/<int:test_id>/<int:question_number>` 
+
+**Methods:** `GET`
+
+**Purpose:**  Präsentiert dem Benutzer eine spezifische Frage aus einem gekauften Test. Verfolgt den Fortschritt des Benutzers und kontrolliert die Anzeige der Antworten basierend auf dem Benutzerfortschritt.
+
+**Sample output:**
+
+Test: VWL Grundlagen Test
+Frage 1 von 2:
+"Erkläre den Begriff 'Opportunitätskosten' und gib ein Beispiel."
+[Antwort anzeigen] [Nächste Frage]

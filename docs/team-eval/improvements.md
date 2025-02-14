@@ -13,6 +13,7 @@ Ilja Makarchuk und Matthieu Weinlein
 {: .no_toc }
 # How we would improve next time
 
+Für das nächste mal würden wir bevor wir ins programmieren gehen, klare Prioritäten setzten, damit wir schneller Fortschritt haben und auch das wichtigste am Anfang sodass es später zu keinen Unstimmigkeiten kommt.
 <details open markdown="block">
 {: .text-delta }
 <summary>Table of contents</summary>

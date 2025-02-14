@@ -20,16 +20,12 @@ Ilja Makarchuk und Matthieu Weinlein
 {: toc }
 </details>
 
-## [Jane Dane]
+## Ilja Makarchuk
 
 Contributions
-: Lorem ipsum dolor
-: Consetetur sadipscing elitr
-: ...
+Wir haben alles gemeinsam gemacht
 
-## [Joe Doe]
+## Matthieu Weinlein
 
 Contributions
-: Diam nonumy eirmod
-: Tempor invidunt ut labore
-: ...
+Wir haben alles gemeinsam gemacht
