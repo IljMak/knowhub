@@ -3,9 +3,7 @@ title: Data Model
 parent: Technical Docs
 nav_order: 2
 ---
-
-{: .attention }
-> Der Rest wird später gelöscht und dient jetzt als Vorlage und Orientierung
+nav_exclude: true
 
 {: .label }
 Ilja Makarchuk
@@ -24,4 +22,4 @@ Ilja Makarchuk
 
 
 Datamodel:
-![get_Knowhub](assets/images/Knowhub.png)
+![get_knowhub](assets/images/Knowhub.png)

@@ -37,3 +37,5 @@ Definition verbinden:
 
 Wahr oder Falsch:
 ![get_wahroderfalsch](assets/images/Wahr_oder_Falsch.png)
+
+![get_knowhub](assets/images/Knowhub.png)
