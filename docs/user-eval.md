@@ -18,7 +18,6 @@ Matthieu Weinlein
 {: toc }
 </details>
 
-## 01
 
 ### Usability Testing – First-Time User Experience
 

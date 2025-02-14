@@ -21,3 +21,7 @@ Ilja Makarchuk
 </details>
 
 [Visualize and describe the data model(s) of your application. This description should match the actual implementation.]
+
+
+Datamodel:
+![get_wahroderfalsch](assets/images/Knowhub.png)

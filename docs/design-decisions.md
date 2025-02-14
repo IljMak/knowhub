@@ -3,8 +3,7 @@ title: Design Decisions
 nav_order: 3
 ---
 
-{: .attention }
-> Der Rest wird später gelöscht und dient jetzt als Vorlage und Orientierung
+
 
 {: .label }
 Ilja Makarchuk & Matthieu Weinlein
@@ -19,81 +18,66 @@ Ilja Makarchuk & Matthieu Weinlein
 {: toc }
 </details>
 
-## 01: Login Screen
-
-### Meta
-
-Status
-: **Work in progress** - Decided - Obsolete
-
-Updated
-: 18-11-2024
-
-### Problem statement
-
-Unsicher im Design
-
-### Decision
-
-Noch keine Decision
-
-### Regarded options
-
-[Describe any possible design decision that will solve the problem. Assess these options, e.g., via a simple pro/con list.]
-
-
-[!CAUTION]
-Der Rest wird später gelöscht und dient jetzt nur als Vorlage und Orientierung
-
----
-
-## [Example, delete this section] 01: How to access the database - SQL or SQLAlchemy 
-
-### Meta
+## 01: Login Screen bzw Design
 
 Status
 : Work in progress - **Decided** - Obsolete
 
 Updated
-: 30-Jun-2024
+: 09.01.2025
 
 ### Problem statement
 
-Should we perform database CRUD (create, read, update, delete) operations by writing plain SQL or by using SQLAlchemy as object-relational mapper?
-
-Our web application is written in Python with Flask and connects to an SQLite database. To complete the current project, this setup is sufficient.
-
-We intend to scale up the application later on, since we see substantial business value in it.
-
-
-
-Therefore, we will likely:
-Therefore, we will likely:
-Therefore, we will likely:
-
-+ Change the database schema multiple times along the way, and
-+ Switch to a more capable database system at some point.
+Wir waren unsicher wie wir unser Anmelde Seite gestalten, da wir noch kein Design in Sicht hatten
 
 ### Decision
 
-We stick with plain SQL.
+Wir haben uns für simples Design entschieden mit moderenen Zügen, damit der Nutzer schnell durch den Anmeldeprozess kommt
 
-Our team still has to come to grips with various technologies new to us, like Python and CSS. Adding another element to our stack will slow us down at the moment.
 
-Also, it is likely we will completely re-write the app after MVP validation. This will create the opportunity to revise tech choices in roughly 4-6 months from now.
-*Decision was taken by:* github.com/joe, github.com/jane, github.com/maxi
 
-### Regarded options
+## 02: Welche Datenbank benutzen wir? 
 
-We regarded two alternative options:
+Status
+: Work in progress - **Decided** - Obsolete
 
-+ Plain SQL
-+ SQLAlchemy
+Updated
+: 20.12.2025
 
-| Criterion | Plain SQL | SQLAlchemy |
-| --- | --- | --- |
-| **Know-how** | ✔️ We know how to write SQL | ❌ We must learn ORM concept & SQLAlchemy |
-| **Change DB schema** | ❌ SQL scattered across code | ❔ Good: classes, bad: need Alembic on top |
-| **Switch DB engine** | ❌ Different SQL dialect | ✔️ Abstracts away DB engine |
+### Problem statement
+Wir wussten nicht welche Datenbank wir für unser Projekt benutzen sollten, da wir beide relativ durchschnittliche Ahnung von programmieren haben.
 
+### Decision
+Wir brauchten eine Datenbank die schnell angepasst werden kann und dass man HWR-bezogene Inhalte dort hochladen kann. Deshalb haben wir uns für eine lokale Datenbank SQL entschieden. Somit können wir spezielle Inhalte die nur in der HWR gibt in der Datenbank hochladen und die Studierenden können damit lernen. Uns ist bewusst, dass diese auch Nachteile mitsich bringt, da man durch das handische schreiben viel Zeit verliert.
+
+
+## 03: Nutzergruppen
+
+Status
+: Work in progress - **Decided** - Obsolete
+
+Updated
+: 10.01.2025
+
+### Problem statement
+Nach unserer Präsentation wurden wir darauf angesprochen, dass unsere Nutzergruppen viel zu breit gefächert waren. 
+
+### Decision
+Wir wollten, dass Unternehmen und Institutionen von unserer Web-App profetieren, wie zum Beispiel Starbucks mit einem Barista-Modul. Doch damit sind die Nutzergruppen viel zu breit gefächert und nicht konkret defenierbar, deshalb haben wir uns entschieden nur auf die HWR uns zu konzentrieren. Wir erstellen ausschließlich Konten für die HWR Studenten
+
+
+
+## 04: Modulfreischaltung
+
+Status
+: Work in progress - **Decided** - Obsolete
+
+Updated
+: 10.01.2025
+
+### Problem statement
+Nach unserer Präsentation hatten wir noch ein Baustelle. Der Nutzer musste Module spielen, die Ihm nicht gefallen, damit er ein Modul freischaltet, dass ihm gefällt. 
+
+### Decision
+Wir haben es so angepasst, dass der Nutzer nach dem einloggen. Sich zwei Module kostenfrei aussuchen kann und diese spielt. Falls es noch ein Modul gibt, dass ihn interessiert kann er diese für 50 Punkte sich erkaufen.
 ---
